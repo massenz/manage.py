@@ -13,9 +13,11 @@ def main():
     except IOError:
         return puts(colored.red('No such file manage.py'))
 
-    from manager import manager
+    from manager import Manager
 
-    manager.main()
+    mgr = Manager()
+    mgr.main()
+
 
 
 if __name__ == '__main__':
