@@ -4,21 +4,21 @@ from setuptools import setup, find_packages
 
 setup(
     name='manage.py',
-    version='0.1b3',
+    version='0.2.5',
     description='Human friendly CLI builder',
     long_description='',
     author='jean-philippe serafin',
     author_email='jps@birdback.com',
     url='https://github.com/Birdback/manage.py',
     packages=find_packages(),
-    install_requires=['clint'],
+    install_requires=[],
     entry_points={
         'console_scripts': [
-            'manage = manage.main:main',
+            'manage = manager.main:main',
         ]
     },
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',

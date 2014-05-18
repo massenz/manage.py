@@ -3,6 +3,9 @@ manage.py
 
 Human friendly CLI builder.
 
+.. image:: https://drone.io/github.com/Birdback/manage.py/status.png
+    :target: https://drone.io/github.com/Birdback/manage.py
+
 Installation
 ------------
 
@@ -16,7 +19,7 @@ Quickstart
 
 .. code:: python
 
-    from manage import Manager
+    from manager import Manager
 
     manager = Manager()
 
@@ -27,6 +30,8 @@ Quickstart
             text = text.upper()
         return text
 
+    if __name__ == '__main__':
+        manager.main()
 
 ``manage --help``::
 
@@ -96,3 +101,28 @@ Argument definition can be overridden
     @manager.command
     def my_command(first_arg):
         # ...
+
+
+Arguments can be prompted
+
+.. code:: python
+
+    @manager.prompt('password', hidden=True, confirm=True)
+    @manager.command
+    def connect(username, password):
+        # ...
+
+
+Environment
+-----------
+
+Environment variables can be sourced from a ``.env`` file as ``key=value`` pair.
+
+Environment variable can be enforce using ``Manager.env`` decorator
+
+.. code:: python
+
+    @manager.env('MY_ENV_VAR')
+    @manager.command
+    def my_command():
+        return os.environ['MY_ENV_VAR']
